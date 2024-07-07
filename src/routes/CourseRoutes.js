@@ -30,7 +30,7 @@ const upload = Multer({
   storage: storage
 });
 
-router.get('/get-signature', getSignature
+router.get('/get-signature',requireSignIn, getSignature
 // #swagger.description = 'Get Signature for Uploading Image on Cloudinary, Required for Uploading Image'
 /* #swagger.responses[200] = {
     description: 'Signature generated successfully',
@@ -142,7 +142,7 @@ router.get('/getCourseRating/:id', getRatings
     } */
 )
 
-router.post('/add-comment', addComment
+router.post('/add-comment',requireSignIn, addComment
 // #swagger.description = 'Adds New Comment to the Course'
 /* #swagger.responses[200] = {
     description: 'Comment added successfully',
@@ -174,26 +174,26 @@ router.post('/addcontent',requireSignIn, addVideoContent
 // #swagger.description = 'Adds New Video Content to the Course'
 );
 
-router.post('/deletevideo', deleteVideoContent
+router.post('/deletevideo',requireSignIn, deleteVideoContent
 // #swagger.description = 'Delete Video Content to the Course'
 );
-router.post('/editVideoTitle', editVideoTitleHandler
+router.post('/editVideoTitle',requireSignIn, editVideoTitleHandler
 // #swagger.description = 'Edit Video Title Handler'
 );
-router.post('/addsection',  addSection
+router.post('/addsection',requireSignIn,  addSection
 // #swagger.description = 'Adds New Section in the Course'
 );
-router.post('/editsection', editSectionHandler
+router.post('/editsection',requireSignIn, editSectionHandler
 // #swagger.description = 'Edits Section Title in the Course'
 );
-router.post('/deletesection', deleteSectionHandler
+router.post('/deletesection',requireSignIn, deleteSectionHandler
 // #swagger.description = 'Deletes Section from the Course'
 );
 
-router.get('/description/:courseId', getCourseDescription
+router.get('/description/:courseId',requireSignIn, getCourseDescription
 // #swagger.description = 'Gets the Description of the Course'
 )
-router.get('/:courseId', getCourseInfo
+router.get('/:courseId',requireSignIn, getCourseInfo
 // #swagger.description = 'Gets the Information of the Course'
 );
 

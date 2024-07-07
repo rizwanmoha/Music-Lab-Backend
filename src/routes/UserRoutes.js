@@ -239,7 +239,7 @@ router.post("/contactus",createQuery
 } */
 )
 
-router.get('/instructorData', InstructorDataController
+router.get('/instructorData', requireSignIn, InstructorDataController
 // #swagger.description = 'Gets all the Instructors'
 );
 
@@ -256,7 +256,7 @@ router.put('/studenteditprofile/:id',updateStudentProfile
 // #swagger.description = 'Update The Profile of a Student'
 );
 
-router.get('/dashboardteacherprofile/:id', dashboardTeacherProfile);
+router.get('/dashboardteacherprofile/:id',requireSignIn, dashboardTeacherProfile);
 router.get('/studentprofile/:id', getStudent);
 
 module.exports = router;

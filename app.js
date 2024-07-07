@@ -28,13 +28,13 @@ app.use('/images',express.static(__dirname+'/images'));
 
 
 
-const AuthRoutes = require("./routes/AuthRoutes.js");
-const UserRoutes = require("./routes/UserRoutes.js");
-const paymentRoutes = require("./routes/PaymentRoutes.js");
-const TeacherRoutes = require('./routes/TeacherRoutes.js');
-const courseRoutes = require("./routes/CourseRoutes.js");
-const AdminRoutes = require('./routes/AdminRoutes.js');
-const connectDb = require('./database/db.js');
+const AuthRoutes = require("./src/routes/AuthRoutes.js");
+const UserRoutes = require("./src/routes/UserRoutes.js");
+const paymentRoutes = require("./src/routes/PaymentRoutes.js");
+const TeacherRoutes = require('./src/routes/TeacherRoutes.js');
+const courseRoutes = require("./src/routes/CourseRoutes.js");
+const AdminRoutes = require('./src/routes/AdminRoutes.js');
+const connectDb = require('./src/database/db.js');
 
 
 const upload = multer({ limits: { fileSize: 50 * 1024 * 1024 } }); 

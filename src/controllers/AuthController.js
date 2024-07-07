@@ -97,7 +97,7 @@ exports.loginController = async (req, res) => {
         }
        
         const token = await JWT.sign(
-          { id: user._id, role: user.role },
+          { id: user._id, role: 'user' },
           process.env.JWT_SECRET,
           {
             expiresIn: "7d",
@@ -128,19 +128,15 @@ exports.loginController = async (req, res) => {
 
         const check = await comparePassword(password, user.password);
       
-      // if (!check) {
-      //   return res
-      //     .status(400)
-      //     .send({ success: false, message: "Your Details didn't match" });
-      // }
+     
       user.firstName = "Mohd";
       user.lastName = "Rizwan";
-      user.role = "Admin";
+      user.role = "admin";
 
       await user.save();
 
       const token = await JWT.sign(
-        { id: user._id, role: "Admin" },
+        { id: user._id, role: "admin" },
         process.env.JWT_SECRET,
         {
           expiresIn: "7d",
@@ -176,7 +172,7 @@ exports.loginController = async (req, res) => {
       }
       console.log("third");
       const token = await JWT.sign(
-        { id: user._id, role: user.role },
+        { id: user._id, role: 'teacher' },
         process.env.JWT_SECRET,
         {
           expiresIn: "7d",

@@ -1,10 +1,10 @@
 const express = require("express");
 const { PaymentController } = require("../controllers/PaymentController");
 const router = express.Router();
-
+const { requireSignIn } = require("../middleware/authmiddleware");
 // const {registerController , loginController} = require('../controllers/AuthController');
 
-router.post('/create-order' , PaymentController
+router.post('/create-order' , requireSignIn, PaymentController
 // #swagger.description = 'Create RazorPay Order for Payment Gateway Facilitation'
 /* #swagger.responses[200] = {
     description: 'Payment order created successfully',

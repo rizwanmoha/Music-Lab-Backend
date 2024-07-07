@@ -5,6 +5,7 @@ const router = express.Router();
 
 const {registerController , listOfTeachers , updateRequest , ignoreRequest, getSingleTeacher } = require('../controllers/TeacherController');
 const {teacherDashboardStudentList, deleteTeacherDashboardStudent,numberOfStudentTeacherDashboard,courseWithCategory,totalEarnedMoney, studentComment} = require('../controllers/DashboardTeacherProfileController.js');
+const { requireSignIn } = require("../middleware/authmiddleware.js");
 
 router.post('/register' , registerController);
 
@@ -77,11 +78,11 @@ router.delete('/ignorerequest/:id' , ignoreRequest
 )
 
 
-router.get('/teacher/studentlist/:id',teacherDashboardStudentList,
+router.get('/teacher/studentlist/:id', requireSignIn ,teacherDashboardStudentList,
 // #swagger.description = 'Get Student List of a particular teacher'
 );
 
-router.delete('/teacherdashboard/student/:id', deleteTeacherDashboardStudent,
+router.delete('/teacherdashboard/student/:id',requireSignIn, deleteTeacherDashboardStudent,
 // #swagger.description = 'Delete Student from Teacher Dashboard'
 );
 
