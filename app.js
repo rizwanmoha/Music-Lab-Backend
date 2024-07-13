@@ -46,6 +46,11 @@ app.use(express.json());
 
 app.use(bodyParser.raw())
 app.use(cors());
+// app.use(cors({
+//   origin: 'http://localhost:5173/',
+//   credentials: true,
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
 
 connectDb();

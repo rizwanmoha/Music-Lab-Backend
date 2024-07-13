@@ -190,7 +190,7 @@ router.post('/deletesection',requireSignIn, deleteSectionHandler
 // #swagger.description = 'Deletes Section from the Course'
 );
 
-router.get('/description/:courseId',requireSignIn, getCourseDescription
+router.get('/description/:courseId', getCourseDescription
 // #swagger.description = 'Gets the Description of the Course'
 )
 router.get('/:courseId',requireSignIn, getCourseInfo
